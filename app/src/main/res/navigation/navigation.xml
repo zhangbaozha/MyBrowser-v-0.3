@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/inputFragment">
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.zhw.mybrowser03.RecordFragment"
+        android:label="fragment_record"
+        tools:layout="@layout/fragment_record" />
+    <fragment
+        android:id="@+id/starFragment"
+        android:name="com.zhw.mybrowser03.StarFragment"
+        android:label="fragment_star"
+        tools:layout="@layout/fragment_star" />
+    <fragment
+        android:id="@+id/inputFragment"
+        android:name="com.zhw.mybrowser03.InputFragment"
+        android:label="fragment_input"
+        tools:layout="@layout/fragment_input" />
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.zhw.mybrowser03.WebFragment"
+        android:label="fragment_web"
+        tools:layout="@layout/fragment_web" />
+</navigation>

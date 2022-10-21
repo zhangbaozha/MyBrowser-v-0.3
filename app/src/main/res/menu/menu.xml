@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/recordFragment"
+        android:icon="@drawable/ic_history"
+        android:title="History Records"
+
+        />
+    <item
+        android:id="@+id/starFragment"
+        android:icon="@drawable/ic_star_fill"
+        android:title="Your Stars" />
+    <item
+        android:id="@+id/full_screen"
+        android:icon="@drawable/ic_fullscreen"
+        android:title="Full Screnn" />
+    <item
+        android:id="@+id/landscape"
+        android:icon="@drawable/ic_landscape"
+        android:title="Landsape" />
+    <item
+        android:id="@+id/NoPictrue"
+        android:icon="@drawable/ic_image_not_supported"
+        android:title="NoPictrue" />
+
+</menu>
