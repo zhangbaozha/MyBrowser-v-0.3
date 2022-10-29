@@ -110,13 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationUI.setupWithNavController(navigationView, navController);
     }
-    public void fullScreen(boolean isFull) {//控制是否全屏显示
-        if (isFull) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
-    }
+
 
     public void full(boolean isFull) {//控制是否全屏显示
         if (isFull) {
