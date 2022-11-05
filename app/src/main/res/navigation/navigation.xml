@@ -24,4 +24,14 @@
         android:name="com.zhw.mybrowser03.WebFragment"
         android:label="fragment_web"
         tools:layout="@layout/fragment_web" />
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.zhw.mybrowser03.ScanFragment"
+        android:label="fragment_scan"
+        tools:layout="@layout/fragment_scan" />
+    <activity
+        android:id="@+id/scanActivity"
+        android:name="com.zhw.mybrowser03.ScanActivity"
+        android:label="activity_scan"
+        tools:layout="@layout/activity_scan" />
 </navigation>

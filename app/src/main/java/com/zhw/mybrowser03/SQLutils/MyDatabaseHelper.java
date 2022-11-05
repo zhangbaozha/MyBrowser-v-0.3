@@ -20,6 +20,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             "timestamp DATETIME DEFAULT CURRENT_TIMESTAMP," +
             "category text ," +
             "url text )";
+    public static final String CREATE_KEYWORD = "Create table IF NOT EXISTS Keyword (" +
+            "id integer primary key autoincrement," +
+            "keyword text )";
+
+    public static final String CREATE_HTML = "Create table IF NOT EXISTS Html (" +
+            "id integer primary key autoincrement," +
+            "html text )";
+
 
     private Context mContext;
     public MyDatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -32,6 +40,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_RECORD);
         db.execSQL(CREATE_STAR_CATEGORY);
         db.execSQL(CREATE_STAR_ITEM);
+        db.execSQL(CREATE_KEYWORD);
+        db.execSQL(CREATE_HTML);
         Toast.makeText(mContext,"Create Successfully", Toast.LENGTH_SHORT).show();
 
     }

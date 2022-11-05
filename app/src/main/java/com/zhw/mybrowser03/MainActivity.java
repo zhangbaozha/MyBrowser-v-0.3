@@ -2,12 +2,9 @@ package com.zhw.mybrowser03;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
-import android.webkit.WebView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,22 +25,45 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         navController = Navigation.findNavController(this, R.id.hostFragment);
         appBarConfiguration = new AppBarConfiguration.Builder(R.id.recordFragment, R.id.starFragment).build();
-
+//        setSupportActionBar(findViewById(R.id.toolbar));
         NavigationView navigationView = findViewById(R.id.navigationView);
 
-        LayoutInflater factory = LayoutInflater.from(this);
+        //LayoutInflater factory = LayoutInflater.from(this);
 
-        View layout = factory.inflate(R.layout.fragment_web, null);
+//        View layout = factory.inflate(R.layout.fragment_web, null);
+//
+//        WebView webView = (WebView) layout.findViewById(R.id.webView);
+//        webView.getSettings().setBlockNetworkImage(true); // 设置无图模式
 
-        WebView webView = (WebView) layout.findViewById(R.id.webView);
-        webView.getSettings().setBlockNetworkImage(true); // 设置无图模式
 
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//        // 设置新的 toolbar
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        // navController 根据控制行为替换掉 HostFragment 中的 Fragment
+//        // navController 由于拿到了 R.id.host_fragment，故也拿到了其中包含的 navigation.xml
+//        // navigation.xml 拿到了三个 fragment 布局，并映射到对应的 Fragment
+//        navController = Navigation.findNavController(this, R.id.hostFragment);
+//        // drawerLayout 包含背景 HostFragment 以及导航 navigationView
+//        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+//        // appBarConfiguration 自动获取 toolbar 并将各个 Fragment 页面注册到其中
+//        appBarConfiguration = new AppBarConfiguration
+////                .Builder(navController.getGraph())
+//                .Builder(R.id.recordFragment, R.id.starFragment)
+//                .setDrawerLayout(drawerLayout)
+//                .build();
+//        // 将 toolbar 和 navController 关联
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+//        // 将 navigationView 和 navController 关联
+//        // navigationView 中的 menu 将会自动根据 navigation.xml 中的各 id 来绑定对应的 Fragment
+//        NavigationView navigationView = findViewById(R.id.navigationView);
+//        NavigationUI.setupWithNavController(navigationView, navController);
 
 
 
@@ -131,7 +151,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+    public boolean onSupportNavigateUp() {
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
 
 
 

@@ -4,22 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_shadow_start_color"
     tools:context=".InputFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/title"
-        android:background="#00000000"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/Stock"
@@ -27,11 +15,11 @@
         android:layout_height="wrap_content"
         android:text="Stock"
         android:textColor="#AC0B0B"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="@+id/stock"
-        app:layout_constraintEnd_toEndOf="@+id/Taobao"
-        app:layout_constraintStart_toStartOf="@+id/Taobao"
-        app:layout_constraintTop_toTopOf="@+id/stock" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Github"
+        app:layout_constraintEnd_toEndOf="@+id/stock"
+        app:layout_constraintStart_toStartOf="@+id/stock"
+        app:layout_constraintTop_toTopOf="@+id/Github" />
 
     <TextView
         android:id="@+id/Taobao"
@@ -39,11 +27,11 @@
         android:layout_height="wrap_content"
         android:text="Taobao"
         android:textColor="#DD2626"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tao"
-        app:layout_constraintEnd_toEndOf="@+id/QQMusic"
-        app:layout_constraintStart_toStartOf="@+id/QQMusic"
-        app:layout_constraintTop_toTopOf="@+id/tao" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/QQMusic"
+        app:layout_constraintEnd_toEndOf="@+id/tao"
+        app:layout_constraintStart_toStartOf="@+id/tao"
+        app:layout_constraintTop_toTopOf="@+id/QQMusic" />
 
     <TextView
         android:id="@+id/QQMusic"
@@ -51,11 +39,11 @@
         android:layout_height="wrap_content"
         android:text="Music"
         android:textColor="#F2DA08"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="@+id/music"
-        app:layout_constraintEnd_toEndOf="@+id/Github"
-        app:layout_constraintStart_toStartOf="@+id/Github"
-        app:layout_constraintTop_toTopOf="@+id/music" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/BiliBili"
+        app:layout_constraintEnd_toEndOf="@+id/music"
+        app:layout_constraintStart_toStartOf="@+id/music"
+        app:layout_constraintTop_toTopOf="@+id/BiliBili" />
 
     <TextView
         android:id="@+id/Github"
@@ -63,199 +51,156 @@
         android:layout_height="wrap_content"
         android:text="Github"
         android:textColor="@color/black"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="@+id/github"
-        app:layout_constraintEnd_toEndOf="@+id/BiliBili"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="@+id/BiliBili"
-        app:layout_constraintTop_toTopOf="@+id/github" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Taobao"
+        app:layout_constraintEnd_toEndOf="@+id/github"
+        app:layout_constraintStart_toStartOf="@+id/github"
+        app:layout_constraintTop_toTopOf="@+id/Taobao" />
 
     <TextView
         android:id="@+id/BiliBili"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:text="BiliBili"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#2196F3"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Bili"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline17"
-        app:layout_constraintTop_toTopOf="@+id/Bili" />
-
-    <ImageButton
-        android:id="@+id/stock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginEnd="251dp"
-        android:background="#00000000"
-        android:src="@drawable/stock"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline16"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/tao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="37dp"
-        android:background="#00000000"
-        android:src="@drawable/taobao"
-        app:layout_constraintBottom_toTopOf="@+id/stock"
-        app:layout_constraintEnd_toEndOf="@+id/stock"
-        app:layout_constraintStart_toStartOf="@+id/stock"
-        app:layout_constraintTop_toBottomOf="@+id/music" />
-
-    <ImageButton
-        android:id="@+id/music"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="25dp"
-        android:background="#00000000"
-        android:src="@drawable/qqmusic"
-        app:layout_constraintBottom_toTopOf="@+id/tao"
-        app:layout_constraintEnd_toEndOf="@+id/tao"
-        app:layout_constraintStart_toStartOf="@+id/tao"
-        app:layout_constraintTop_toBottomOf="@+id/github" />
-
-    <ImageButton
-        android:id="@+id/github"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:background="#00000000"
-        android:src="@drawable/github"
-        app:layout_constraintEnd_toEndOf="@+id/music"
-        app:layout_constraintStart_toStartOf="@+id/music"
-        app:layout_constraintTop_toBottomOf="@+id/Bili" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toEndOf="@+id/Bili"
+        app:layout_constraintStart_toStartOf="@+id/Bili" />
 
     <ImageButton
         android:id="@+id/Bili"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
         android:background="#00000000"
         android:src="@drawable/bilibili"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toEndOf="@+id/github"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/github"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteTextView" />
+        app:layout_constraintBottom_toBottomOf="@+id/music"
+        app:layout_constraintEnd_toStartOf="@+id/music"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/music" />
+
+    <ImageButton
+        android:id="@+id/stock"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="24dp"
+        android:background="#00000000"
+        android:src="@drawable/stock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/github"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/music"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="#00000000"
+        android:src="@drawable/qqmusic"
+        app:layout_constraintBottom_toBottomOf="@+id/tao"
+        app:layout_constraintEnd_toStartOf="@+id/tao"
+        app:layout_constraintStart_toEndOf="@+id/Bili"
+        app:layout_constraintTop_toTopOf="@+id/tao" />
+
+    <ImageButton
+        android:id="@+id/tao"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00000000"
+        android:src="@drawable/taobao"
+        app:layout_constraintBottom_toBottomOf="@+id/github"
+        app:layout_constraintEnd_toStartOf="@+id/github"
+        app:layout_constraintStart_toEndOf="@+id/music"
+        app:layout_constraintTop_toTopOf="@+id/github"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/github"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00000000"
+        android:src="@drawable/github"
+        app:layout_constraintBottom_toBottomOf="@+id/stock"
+        app:layout_constraintEnd_toStartOf="@+id/stock"
+        app:layout_constraintStart_toEndOf="@+id/tao"
+        app:layout_constraintTop_toTopOf="@+id/stock" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="257dp"
+        android:layout_height="49dp"
+        android:completionThreshold="1"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/edit_background"
+        android:paddingLeft="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/KeywordSearchButton"
+        app:layout_constraintEnd_toStartOf="@+id/KeywordSearchButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/KeywordSearchButton"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/bt_scan"
+        android:layout_width="51dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="14dp"
+        android:background="#00000000"
+        android:src="@drawable/scanner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/KeywordSearchButton"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
 
         android:id="@+id/KeywordSearchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="49dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:background="#00000000"
         android:src="@drawable/search"
-        app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTextView"
-        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_scan"
+        app:layout_constraintEnd_toStartOf="@+id/bt_scan"
         app:layout_constraintStart_toEndOf="@+id/autoCompleteTextView"
-        app:layout_constraintTop_toTopOf="@+id/autoCompleteTextView"
+        app:layout_constraintTop_toTopOf="@+id/bt_scan"
         tools:ignore="MissingConstraints"
         tools:src="@drawable/search" />
-
-    <ImageButton
-        android:id="@+id/bt_scan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00000000"
-        android:src="@drawable/scanner"
-        app:layout_constraintBottom_toBottomOf="@+id/KeywordSearchButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/KeywordSearchButton"
-        app:layout_constraintTop_toTopOf="@+id/KeywordSearchButton"
-        tools:ignore="MissingConstraints" />
-
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-
-        android:layout_marginStart="30dp"
-        android:background="@drawable/edit_background"
-        android:paddingLeft="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8"
-        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.3" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.61" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#7D1111"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.77" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.94160587" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.7" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="386dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="13dp"
+        android:src="@drawable/tit2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

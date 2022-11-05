@@ -1,26 +1,30 @@
 package com.zhw.mybrowser03;
 
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+import com.zhw.mybrowser03.SQLutils.MyDatabaseHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InputFragment extends Fragment {
-    private String words[] = {};
+    private List<String> words;
+    private MyDatabaseHelper dbHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,16 +39,36 @@ public class InputFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ImageButton searchButton = getView().findViewById(R.id.KeywordSearchButton);
+        words = quarryKeyword();
         AutoCompleteTextView autoCompleteTextView = getView().findViewById(R.id.autoCompleteTextView);
         String Keyword = autoCompleteTextView.toString();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                getActivity(), android.R.layout.simple_dropdown_item_1line,words );
+        autoCompleteTextView.setAdapter(adapter);
 //        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 //                android.R.layout.simple_dropdown_item_1line, words);
 //        autoCompleteTextView.setAdapter(adapter);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                dbHelper = new MyDatabaseHelper(getActivity(),"Keyword",null,4);
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                String url = "";
                 String Keyword = String.valueOf(autoCompleteTextView.getText());
-                String url = "http://www.baidu.com/s?wd=" + Keyword;
+                ContentValues values = new ContentValues();
+                values.put("keyword",Keyword);
+                db.insert("Keyword",null,values);
+                values.clear();
+                if(Keyword.startsWith("www.")){
+                    url = "http://" + Keyword + "/";
+                }
+                else {
+                    url = "http://www.baidu.com/s?wd=" + Keyword;
+                }
+
+
                 Bundle bundle = new Bundle();
                 bundle.putString("url", url);
 
@@ -57,18 +81,8 @@ public class InputFragment extends Fragment {
         btScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Initialize intent
-                IntentIntegrator intentIntegrator = new IntentIntegrator(getActivity());
-                // Set prompt text
-                intentIntegrator.setPrompt("For flash use volume up key");
-                // Set beep
-                intentIntegrator.setBeepEnabled(true);
-                //Locked orientation
-                intentIntegrator.setOrientationLocked(true);
-                // Set capture activity
-                intentIntegrator.setCaptureActivity(Capture.class);
-                // Initiae scan
-                intentIntegrator.initiateScan();
+                NavController controller = Navigation.findNavController(view);
+                controller.navigate(R.id.scanActivity);
 
             }
         });
@@ -148,29 +162,26 @@ public class InputFragment extends Fragment {
         });
 
     }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Initialize intent result
-        IntentResult intentResult = IntentIntegrator.parseActivityResult(
-                requestCode,resultCode,data
-        );
-        if (intentResult.getContents() != null){
-            AlertDialog.Builder builder = new AlertDialog.Builder(
-                    getActivity()
-            );
-            builder.setTitle("Result");
-            builder.setMessage(intentResult.getContents());
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                }
-            });
-            builder.show();
-        }else {
-            Toast.makeText(getContext(),
-                    "抱歉....你没有扫描任何东西！",Toast.LENGTH_SHORT).show();
+
+
+    public List<String> quarryKeyword(){
+        MyDatabaseHelper dbHelper = new MyDatabaseHelper(getActivity(),"Keyword",null,4);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        List<String> data = new ArrayList<String>();
+
+
+        Cursor cursor = db.query("Keyword",null,null,null,null,null,null);
+        if(cursor.moveToFirst()){
+            do{
+                @SuppressLint("Range") String Keyword = cursor.getString(cursor.getColumnIndex("keyword"));
+
+
+                data.add(Keyword);
+            }while(cursor.moveToNext());
         }
+        db.close();
+        return  data;
+
     }
 }

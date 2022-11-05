@@ -19,6 +19,11 @@ import androidx.fragment.app.Fragment;
 
 import com.zhw.mybrowser03.SQLutils.MyDatabaseHelper;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
+
 public class WebFragment extends Fragment {
     private boolean noPic = false;
     private MyDatabaseHelper dbHelper;
@@ -39,6 +44,7 @@ public class WebFragment extends Fragment {
         ImageButton star = getView().findViewById(R.id.star);
         ImageButton back = getView().findViewById(R.id.back);
         ImageButton forward = getView().findViewById(R.id.forward);
+        ImageButton download = getView().findViewById(R.id.download);
         super.onActivityCreated(savedInstanceState);
         String url = getArguments().getString("url");
         WebView webView = getView().findViewById(R.id.webView);
@@ -61,8 +67,6 @@ public class WebFragment extends Fragment {
                 String str = "http://m.baidu.com/";
                 boolean b = url.startsWith(str);
                 if(!b){
-//                    System.out.println("标题"+title);
-//                    System.out.println(url);
                     ContentValues values = new ContentValues();
                     values.put("url",url);
 
@@ -112,6 +116,7 @@ public class WebFragment extends Fragment {
             public void onClick(View view) {
                 String url = webView.getUrl();
                 webView.loadUrl(url);
+
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +144,30 @@ public class WebFragment extends Fragment {
                 db.insert("StarCategoryItem",null,values);
                 Toast.makeText(getContext(),"收藏成功",Toast.LENGTH_SHORT).show();
                 values.clear();
+            }
+        });
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = webView.getUrl();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Document document = null;
+                        try {
+                            document = Jsoup.connect(url).get();
+                            dbHelper = new MyDatabaseHelper(getActivity(),"Html",null,1);
+                            SQLiteDatabase db = dbHelper.getWritableDatabase();
+                            ContentValues values = new ContentValues();
+                            values.put("html", String.valueOf(document));
+                            db.insert("Html",null,values);
+                            Toast.makeText(getContext(),"HTML下载成功",Toast.LENGTH_SHORT).show();
+                            values.clear();
+                        } catch (IOException exception) {
+                            exception.printStackTrace();
+                        }
+                    }
+                }).start();
             }
         });
 
